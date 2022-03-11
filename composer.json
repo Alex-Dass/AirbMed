@@ -15,12 +15,15 @@
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
         "symfony/flex": "^2",
+        "symfony/form": "6.0.*",
         "symfony/framework-bundle": "6.0.*",
         "symfony/http-kernel": "6.0.*",
+        "symfony/monolog-bundle": "^3.0",
         "symfony/proxy-manager-bridge": "6.0.*",
         "symfony/runtime": "6.0.*",
         "symfony/webpack-encore-bundle": "^1.14",
-        "symfony/yaml": "6.0.*"
+        "symfony/yaml": "6.0.*",
+        "symfonycasts/verify-email-bundle": "^1.10"
     },
     "config": {
         "allow-plugins": {
@@ -74,6 +77,9 @@
         }
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.38"
+        "symfony/debug-bundle": "6.0.*",
+        "symfony/maker-bundle": "^1.38",
+        "symfony/stopwatch": "6.0.*",
+        "symfony/web-profiler-bundle": "6.0.*"
     }
 }

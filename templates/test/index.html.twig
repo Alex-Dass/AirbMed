@@ -1,35 +1,120 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Test index{% endblock %}
 
 {% block body %}
-    <h1>Test index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Test</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for test in tests %}
-            <tr>
-                <td>{{ test.id }}</td>
-                <td>{{ test.test }}</td>
-                <td>
-                    <a href="{{ path('app_test_show', {'id': test.id}) }}">show</a>
-                    <a href="{{ path('app_test_edit', {'id': test.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+
+<body>
+   <nav class="site-header sticky-top py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+        </a>
+        <a class="py-2 d-none d-md-inline-block" href="#">PRÉSENTATION</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">PRESTATIONS</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">ACTUALITÉS</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">PARTENAIRES</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">INFOS PRATIQUES</a>
+      </div>
+    </nav>
+
+    <div 
+    class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
+    style="
+     background-image: url('https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images/Bandeaux/iStock-509053705_1140x300.jpg?r=1623136816');
+     height: 300px
+    "
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h2 class="display-4 text-white font-weight-normal">Bienvenue sur le site d'AIR de Bretagne</h2>
+        <p class="lead text-white font-weight-normal">PRESTATAIRE DE SANTÉ ASSOCIATIF : CULTIVONS LA DIFFÉRENCE.</p>
+        <a class="btn  text-white btn-outline-secondary" href="#">Informations</a>
+      </div>
+      <div class="product-device box-shadow d-none d-md-block"></div>
+      <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
+
+    
+  <div 
+  id="myCarousel" 
+  class="carousel slide"
+  data-bs-ride="carousel" 
+  style="height: 500px; 
+         width: 300px"
+  >
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1></h1></p>
+            <p><a class="btn btn-lg btn-primary" href="#"></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1></h1>
+            <p></p>
+            <p><a class="btn btn-lg btn-primary" href="#"></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </button>
+  </div>
+    
+
+    
+
+    <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          <small class="d-block mb-3 text-muted">&copy; 2022-2023</small>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Assistance respiratoire</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Traitement des apnées du sommeil</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5> Nutrition</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Insulinothérapie</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Perfusion</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Matériel de maintien à domicile</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+</body>
 
     <a href="{{ path('app_test_new') }}">Create new</a>
 {% endblock %}

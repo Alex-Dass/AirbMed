@@ -2,24 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Test;
+use App\Entity\News;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TestType extends AbstractType
+class NewsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('test')
+            ->add('date')
+            ->add('body')
+            ->add('author')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Test::class,
+            'data_class' => News::class,
         ]);
     }
 }
