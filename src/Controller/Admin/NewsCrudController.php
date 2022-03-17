@@ -33,7 +33,7 @@ class NewsCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             DateTimeField::new('date'),
             TextField::new('author'),
-            TextField::new('Titre'),
+            TextField::new('title'),
             TextEditorField::new('body')->hideOnDetail(),
             //DateTimeField::new('updateAt')->hideOnForm(),
         ];

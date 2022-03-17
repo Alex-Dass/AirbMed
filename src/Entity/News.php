@@ -18,7 +18,7 @@ class News
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 
@@ -35,7 +35,7 @@ class News
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Titre;
+    private $title;
 
     public function getId(): ?int
     {
@@ -78,14 +78,14 @@ class News
         return $this;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->Titre;
+        return $this->title;
     }
 
-    public function setTitre(string $Titre): self
+    public function setTitle(string $title): self
     {
-        $this->Titre = $Titre;
+        $this->title = $title;
 
         return $this;
     }

@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
+  <div class="container">
+    <a class="navbar-brand me-2" href="/test">
+      <img
+        src="https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images//logoHorizontal2_0x0.png"
+        height="16"
+        loading="lazy"
+        style="margin-top: -1px;"
+      />
+    </a>
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <a class="nav-link" href="#">PRÉSENTATION</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">ACTUALITÉS</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">PARTENAIRES</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">INFOS PRATIQUES</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="admin">Dashboard</a>
+        </li>
+      </ul>
+      <div class="navbar-nav ml-auto">
+      <a href="/login">
+        <button type="button" class="btn btn-link px-3 me-2">Connexion</button>
+      </a>
+      <a href="/register">
+        <button type="button" class="btn btn-primary me-3">S'inscrire</button>
+      </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <main class="container">
+    <div class="text-center bg-image rounded-pill img-fluid"
+    style="background-image: url({{ asset('build/img/noir.png') }});
+    height:500px;
+    margin-bottom: 30px
+    ">
+
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h2 class="display-4 text-white font-weight-normal">Bienvenue sur le site d'AIR de Bretagne</h2>
+        <p class="lead text-white font-weight-normal">PRESTATAIRE DE SANTÉ ASSOCIATIF : CULTIVONS LA DIFFÉRENCE.</p>
+        <a class="btn  text-white btn-outline-secondary" href="#">Informations</a>
+      </div>
+      <div class="product-device box-shadow d-none d-md-block"></div>
+      <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
+
+    <main class="container">
+    <div class="d-grid gap-3  rounded">
+      <div class="p-2 bg-light border">
+       {{ render(controller( 'App\\Controller\\Admin\\NewsCrudController::recentNews', { 'max': 3 } )) }}
+    </div>
+    </div>
+   </main>
+
+    
+
+    <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          <small class="d-block mb-3 text-muted">&copy; 2022-2023</small>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Assistance respiratoire</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Traitement des apnées du sommeil</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5> Nutrition</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Insulinothérapie</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Perfusion</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Matériel de maintien à domicile</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+</body>
+{% endblock %}
