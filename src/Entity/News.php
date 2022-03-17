@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\NewsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,7 +20,7 @@ class News
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 
@@ -28,14 +30,21 @@ class News
     private $author;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $title;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $body;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Titre;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -78,15 +87,23 @@ class News
         return $this;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->Titre;
+        return $this->title;
     }
 
-    public function setTitre(string $Titre): self
+    public function setTitle(string $title): self
     {
-        $this->Titre = $Titre;
+        $this->title = $title;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Category>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
     }
 }
