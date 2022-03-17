@@ -40,7 +40,7 @@
 
     <main class="container">
     <div class="text-center bg-image rounded-pill img-fluid"
-    style="background-image: url('https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images/Bandeaux/iStock-509053705_1140x300.jpg?r=1623136816');
+    style="background-image: url('/img/noir.png');
     height:500px;
     margin-bottom: 30px
     ">
@@ -57,17 +57,9 @@
     <main class="container">
     <div class="d-grid gap-3  rounded">
       <div class="p-2 bg-light border">
-      <h1>PRESTATAIRE DE SANTÉ ASSOCIATIF : CULTIVONS LA DIFFÉRENCE</h1>
-      <p/>
-      <p>
-      Pionnier de l’assistance respiratoire à domicile depuis plus de 30 ans, AIR de Bretagne est un Prestataire de Santé  à Domicile Associatif, à but non lucratif.  
-      </p><p>
-      En répondant aux sollicitations des médecins prescripteurs, nous permettons le retour et le maintien à domicile des patients nécessitant un dispositif médical.
-      Historiquement créée pour les patients souffrant d'insuffisance respiratoire ou d'apnées du sommeil, AIR de Bretagne a depuis largement développé ses prestations. 
-      Nous fournissons et suivons également à domicile les patients nécessitant des traitements par dispositif de PNI (Perfusion, Nutrition, Insulinothérapie par pompe).
-      </p>
-      </div>
-    </div></div>
+       {{ render(controller( 'App\\Controller\\Admin\\NewsCrudController::recentNews', { 'max': 3 } )) }}
+    </div>
+    </div>
    </main>
 
     
