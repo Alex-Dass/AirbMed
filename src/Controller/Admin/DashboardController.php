@@ -17,10 +17,8 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
        // return parent::index();
-
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
               $url = $routeBuilder->setController(NewsCrudController::class)->generateUrl();
-        
               return $this->redirect($url);
     }
 
@@ -34,9 +32,7 @@ class DashboardController extends AbstractDashboardController
     {
         //yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', '/');
-
         yield MenuItem::section('Actualité');
-
         yield MenuItem::subMenu('News','fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouter des news','fas fa-plus', News::class)->setAction(Crud::PAGE_NEW)
         ]);
