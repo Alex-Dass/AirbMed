@@ -26,14 +26,23 @@
         <a class="nav-link" href="#">INFOS PRATIQUES</a>
         </li>
       </ul>
+
       <div class="navbar-nav ml-auto">
        {% if app.user %}
-       <a href="/admin">
-        <button type="button" class="btn btn-primary px-3 me-2">Dashboard</button>
-      </a>
+    
+       <h3 style="margin-right:20px"> Bonjour {{ app.user.username }} </h3>
+      
+
+        {% if is_granted('ROLE_ADMIN')%}
+        <a href="/admin">
+          <button type="button" class="btn btn-primary" style="margin-right: 10px">Dashboard</button>
+        </a>
+        {% endif %}
+
       <a href="/logout">
         <button type="button" class="btn btn-danger mb-2">Déconnexion</button>
       </a>
+
      {% else %}
       <a href="/login">
         <button type="button" class="btn btn-link px-3 me-2">Connexion</button>
@@ -41,6 +50,7 @@
       <a href="/register">
         <button type="button" class="btn btn-primary me-3">S'inscrire</button>
       </a>
+
       {% endif %}
       </div>
     </div>
