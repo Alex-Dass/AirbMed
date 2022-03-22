@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -18,6 +19,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email')
+            //->add('email', CKEditorType::class)
             ->add('username')
             // ->add('agreeTerms', CheckboxType::class, [
             //     'mapped' => false,

@@ -36,5 +36,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('News','fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Ajouter des news','fas fa-plus', News::class)->setAction(Crud::PAGE_NEW)
         ]);
+        
     }
 }
