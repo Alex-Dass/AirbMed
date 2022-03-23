@@ -59,7 +59,7 @@
 
     <main class="container">
     <div class="text-center bg-image rounded-pill img-fluid"
-    style="background-image: url({{ asset('build/img/noir.png') }});
+    style="background-image: url({{ asset('images/noir.png') }});
     height:500px;
     margin-bottom: 30px
     ">
@@ -76,8 +76,7 @@
     <main class="container">
     <div class="d-grid gap-3  rounded">
       <div class="p-2 bg-light border">
-     
-        {{ render(controller( 'App\\Controller\\Admin\\NewsCrudController::recentNews', { 'max': 3 } )) }}
+        {{ render(controller( 'App\\Controller\\Admin\\HomeTextCrudController::show' )) }}
     </div>
     </div>
    </main>
