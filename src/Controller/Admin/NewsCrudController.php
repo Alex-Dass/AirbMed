@@ -19,7 +19,8 @@ class NewsCrudController extends AbstractCrudController
     }
 
     public function recentNews($max=3, NewsRepository $newsRepository){
-        $news = $newsRepository->findBy([],['id'=>'DESC'],['limit'=> $max]);
+        
+        $news = $newsRepository->findBy([],['id'=>'DESC'],[$max]);
         
         return $this->render(
             'news/recent_news.html.twig',

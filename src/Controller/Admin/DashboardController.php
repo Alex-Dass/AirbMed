@@ -42,7 +42,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Pages');
         yield MenuItem::subMenu('Page d\'acceuil','fas fa-home')->setSubItems([
             MenuItem::linkToCrud('Ajouter','fas fa-plus', HomeText::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Modifier la page','fas fa-home', HomeText::class)->setAction(Crud::PAGE_EDIT),
+            MenuItem::linkToCrud('Modifier la page','fas fa-home', HomeText::class),
         ]);
         yield MenuItem::subMenu('Page','fas fa-file')->setSubItems([
             MenuItem::linkToCrud('Ajouter','fas fa-plus', News::class)->setAction(Crud::PAGE_NEW),
