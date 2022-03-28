@@ -1,6 +1,77 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 	<body>
+
+
+	<header class="p-3 bg-dark text-white">
+		<div class="container">
+			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<a class="navbar-brand me-2" href="/test">
+					<img src="https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images//logoHorizontal2_0x0.png" height="50" loading="lazy" style="margin-top: -1px;"/>
+				</a>
+
+				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-white" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Présentation</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown08">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-white" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Préstation</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown08">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-white" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actualités</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown08">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-white" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informations</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown08">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+				</ul>
+
+
+				{% if app.user %}
+					<div class="text-end">
+						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle px-2 text-white" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.user.username }}</a>
+								<div class="dropdown-menu" aria-labelledby="dropdown08">
+									{% if is_granted('ROLE_ADMIN')%}
+										<a class="dropdown-item" href="/admin">Dashboard</a>
+									{% endif %}
+									<a class="dropdown-item" href="/logout">Déconnexion</a>
+
+								</div>
+							</li>
+						</ul>
+						{# {% if is_granted('ROLE_ADMIN')%}
+						          <button type="button" class="btn btn-outline-light me-2">Dashboard</button>
+									{% endif %}
+						          <button type="button" class="btn btn-warning">Déconnexion</button> #}
+					{% else %}
+						<button onclick="location.href='/login'" type="button" class="btn btn-outline-light me-2">Connexion</button>
+						<button onclick="location.href='/register'" type="button" class="btn btn-warning">S'inscrire</button>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</header>
 	
 		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
 			<div class="container">
