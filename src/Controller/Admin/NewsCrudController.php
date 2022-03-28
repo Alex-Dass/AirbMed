@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class NewsCrudController extends AbstractCrudController
@@ -18,10 +20,10 @@ class NewsCrudController extends AbstractCrudController
         return News::class;
     }
 
-    public function recentNews($max=3, NewsRepository $newsRepository){
+    public function recentNews(NewsRepository $newsRepository){
         
-        $news = $newsRepository->findBy([],['id'=>'DESC'],[$max]);
-        
+        $news = $newsRepository->recentNews(3);
+
         return $this->render(
             'news/recent_news.html.twig',
             ['news' => $news]
@@ -41,7 +43,10 @@ class NewsCrudController extends AbstractCrudController
             DateTimeField::new('date','Date'),
             TextField::new('author','Autheur'),
             TextField::new('title','Titre de l\'article'),
+            ImageField::new('image','Image du carrouselle')->setUploadDir('public\images')->setBasePath('public\images')->setUploadedFileNamePattern('[slug]-[contenthash].[extension]'),
             TextEditorField::new('body', 'Contenu')->setFormType(CKEditorType::class),
+            
+           
             //TextEditorField::new('body','Article')->hideOnDetail(),
             //DateTimeField::new('updateAt')->hideOnForm(),
         ];

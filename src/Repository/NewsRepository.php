@@ -45,6 +45,15 @@ class NewsRepository extends ServiceEntityRepository
         }
     }
 
+    public function recentNews($max=3){
+        $qb = $this->createQueryBuilder('n')
+        ->orderBy('n.id', 'DESC')
+        ->setMaxResults($max);
+        
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
+
     // /**
     //  * @return News[] Returns an array of News objects
     //  */
