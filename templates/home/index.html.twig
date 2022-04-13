@@ -1,130 +1,46 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-
-
-	<div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a class="navbar-brand me-2" href="/test">
-		<img src="https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images//logoHorizontal2_0x0.png" height="50" loading="lazy" style="margin-top: -1px;"/>
-	  </a>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li class="nav-item dropdown espace">
-						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Présentation</a>
-						<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown espace">
-						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Préstation</a>
-						<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown espace">
-						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actualités</a>
-						<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown espace">
-						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informations</a>
-						<div class="dropdown-menu  dropdown-content" aria-labelledby="dropdown08">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
-      </ul>
-
-     	{% if app.user %}
-					<div class="text-end">
-						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.user.username }}</a>
-								<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
-									{% if is_granted('ROLE_ADMIN')%}
-										<a class="dropdown-item" href="/admin">Dashboard</a>
-									{% endif %}
-									<a class="dropdown-item" href="/logout">Déconnexion</a>
-
-								</div>
-							</li>
-						</ul>
-						{# {% if is_granted('ROLE_ADMIN')%}
-						          <button type="button" class="btn btn-outline-light me-2">Dashboard</button>
-									{% endif %}
-						          <button type="button" class="btn btn-warning">Déconnexion</button> #}
-					{% else %}
-						<button onclick="location.href='/login'" type="button" class="btn btn-warning">Connexion</button>
-						<button onclick="location.href='/register'" type="button" class="btn btn-warning">S'inscrire</button>
-					{% endif %}
-				</div>
-    </header>
-  </div>
+	<style>
+		#newmenuu {
 	
+		}
+		.navbar1{
+    		background-color: #FFFFFF;
+			position: fixed;
+			top: 0;
+			z-index: 10;
+			width: 100%;
+		}
+		.navtest{
+			color: #FFFFFF;
+			position: absolute;
+			top: 0;
+			z-index: 10;
+			width: 100%;
+			display: none
+			
+		}
+	</style>
+
+	<script>
+	window.onscroll = function() {
+		console.log(window.pageYOffset);
+		var nav = document.getElementById('newmenuu');
+		if ( window.pageYOffset > 250 ) {
+			nav.classList.remove("navtest");
+			nav.classList.add("navbar1");
+		} else {
+			nav.classList.remove("navbar1");
+			nav.classList.add("navtest");
+		}
+	}
+	</script>
 
 
+	<title>Airdebretagne</title>
+	{{ render(controller( 'App\\Controller\\Admin\\NewsCrudController::recentNews', { 'max':  3 } )) }}
 	<main class="container">
-		<div class="text-center bg-image rounded-pill img-fluid">
-			{{ render(controller( 'App\\Controller\\Admin\\NewsCrudController::recentNews', { 'max':  3 } )) }}
-		</div>
-
-		<div class="container">
-			<div class="row">
-				{{ render(controller( 'App\\Controller\\Admin\\HomeTextCrudController::show' )) }}
-			</div>
-		</div>
+		{{ render(controller( 'App\\Controller\\Admin\\HomeTextCrudController::show' )) }}
 	</main>
-
-	
-	<footer class="container py-5">
-		<div class="row">
-			<div class="col-12 col-md">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2">
-					<circle cx="12" cy="12" r="10"></circle>
-					<line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
-					<line x1="9.69" y1="8" x2="21.17" y2="8"></line>
-					<line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
-					<line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
-					<line x1="14.31" y1="16" x2="2.83" y2="16"></line>
-					<line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
-				</svg>
-				<small class="d-block mb-3 text-muted">&copy; 2022-2023</small>
-			</div>
-			<div class="col-6 col-md">
-				<h5>Assistance respiratoire</h5>
-				<ul class="list-unstyled text-small">
-					<li>
-						<a class="text-muted" href="#">Traitement des apnées du sommeil</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5>
-					Nutrition</h5>
-				<ul class="list-unstyled text-small">
-					<li>
-						<a class="text-muted" href="#">Insulinothérapie</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5>Perfusion</h5>
-				<ul class="list-unstyled text-small">
-					<li>
-						<a class="text-muted" href="#">Matériel de maintien à domicile</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</footer>
 {% endblock %}
-

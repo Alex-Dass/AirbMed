@@ -54,6 +54,27 @@ class NewsRepository extends ServiceEntityRepository
         return $query->execute();
     }
 
+    public function allNews(){
+        $qb = $this->createQueryBuilder('n')
+        ->orderBy('n.id', 'DESC');
+        
+        
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
+
+    public function oneNews(){
+        $qb = $this->createQueryBuilder('n')
+        ->orderBy('n.id');
+        
+        
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
+
+
+
+
     // /**
     //  * @return News[] Returns an array of News objects
     //  */

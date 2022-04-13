@@ -30,6 +30,26 @@ class NewsCrudController extends AbstractCrudController
         );
     }
 
+    public function allNews(NewsRepository $newsRepository){
+        
+        $news = $newsRepository->allNews();
+
+        return $this->render(
+            'news/all_news.html.twig',
+            ['news' => $news]
+        );
+    }
+
+    public function oneNews(NewsRepository $newsRepository){
+        
+        $news = $newsRepository->oneNews();
+
+        return $this->render(
+            'news/all_news.html.twig',
+            ['news' => $news]
+        );
+    }
+
     public function configureCrud(Crud $crud): Crud
     {
         return $crud 
@@ -43,7 +63,7 @@ class NewsCrudController extends AbstractCrudController
             DateTimeField::new('date','Date'),
             TextField::new('author','Autheur'),
             TextField::new('title','Titre de l\'article'),
-            ImageField::new('image','Image du carrouselle')->setUploadDir('public\images')->setBasePath('public\images')->setUploadedFileNamePattern('[slug]-[contenthash].[extension]'),
+            ImageField::new('image','Image du carrouselle')->setUploadDir('public\images')->setBasePath('public\images')->setUploadedFileNamePattern('[slug]-[contenthash].[extension]')->hideOnIndex(),
             TextEditorField::new('body', 'Contenu')->setFormType(CKEditorType::class),
             
            

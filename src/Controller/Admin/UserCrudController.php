@@ -9,7 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -39,7 +40,11 @@ class UserCrudController extends AbstractCrudController
         return [
             TextField::new('username','Nom d\'utilisateur')->hideOnForm(),
             TextField::new('email','Adresse mail')->hideOnForm(),
-            ArrayField::new('roles','Rôle')
+            ChoiceField::new('roles','Rôle')->allowMultipleChoices()->autocomplete()->setChoices([
+                'Utilisateur' => 'ROLE_USER',
+                'Modérateur' => 'ROLE_MOD',
+                'Administrateur' => 'ROLE_ADMIN',
+            ])
         ];
     }
     
