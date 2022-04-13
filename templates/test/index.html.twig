@@ -1,7 +1,0 @@
-{% extends 'base.html.twig' %}
-{% block body %}
-
-    <div class="container">
-        {{ render(controller( 'App\\Controller\\Admin\\NewsCrudController::allNews', { 'max':  3 } )) }}
-    </div>
-{% endblock %}

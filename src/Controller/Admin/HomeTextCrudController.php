@@ -4,12 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Entity\HomeText;
 use App\Repository\HomeTextRepository;
-use App\Repository\NewsRepository;
+
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Component\HttpFoundation\Response;
+
 
 class HomeTextCrudController extends AbstractCrudController
 {

@@ -1,8 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-	<body>
-		<div class='container bg-red'>
-			METIER
-		</div>
-	</body>
+	<title>Actualités</title>
+
+	
+	<main class="container">
+		<img src="https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images/Bandeaux//Notre%20statut%20associatif_0x0.jpg"/>
+		{{ render(controller( 'App\\Controller\\Admin\\PresentationCrudController::presentationById',{ 'id':  3} )) }}
+	</main>
+	
 {% endblock %}
