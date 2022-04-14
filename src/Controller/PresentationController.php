@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\PresentationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,60 +15,21 @@ class PresentationController extends AbstractController
         return $this->render('presentation/presidente.html.twig');
     }
     //-------------------------------------------------------------------------------
-    #[Route('/presentation/presidente', name: 'presidente')]
-    public function index2(): Response
-    {
-        return $this->render('presentation/presidente.html.twig',[
-        'controller_name' => 'PresentationController']);
+    #[Route('/presentation/{id}', name: 'page_presentation')]
+    public function page_presentation(int $id, PresentationRepository $presentationRepository): Response
+    {   
+        $page = $presentationRepository->findBy(['id' => $id]);
+        return $this->render('presentation/body.html.twig', [
+            'page' => $page,
+        ]);
     }
     //-------------------------------------------------------------------------------
-    #[Route('/presentation/assos', name: 'assos')]
-    public function index3(): Response
-    {
-        $urlUnAuth = $this->render('presentation/assos.html.twig', [
-            'controller_name' => 'PresentationController',
-            ]);
-            return  $urlUnAuth;
-
+    #[Route('/', name: 'navbar_presentation')]
+    public function navbar_presentation(int $id, PresentationRepository $presentationRepository): Response
+    {   
+        $page = $presentationRepository->findBy(['id' => $id]);
+        return $this->render('base.html.twig', [
+            'page' => $page,
+        ]);
     }
-    //-------------------------------------------------------------------------------
-    #[Route('/presentation/metier', name: 'metier')]
-    public function index4(): Response
-    {
-        $urlUnAuth = $this->render('presentation/metier.html.twig', [
-            'controller_name' => 'PresentationController',
-            ]);
-            return  $urlUnAuth;
-
-    }
-    //-------------------------------------------------------------------------------
-    #[Route('/presentation/histoire', name: 'histoire')]
-    public function index5(): Response
-    {
-        $urlUnAuth = $this->render('presentation/histoire.html.twig', [
-            'controller_name' => 'PresentationController',
-            ]);
-            return  $urlUnAuth;
-
-    }
-    //-------------------------------------------------------------------------------
-    #[Route('/presentation/valeur', name: 'valeur')]
-    public function index6(): Response
-    {
-        $urlUnAuth = $this->render('presentation/valeur.html.twig', [
-            'controller_name' => 'PresentationController',
-            ]);
-            return  $urlUnAuth;
-
-    }
-    //-------------------------------------------------------------------------------
-    #[Route('/presentation/equipe', name: 'equipe')]
-    public function index7(): Response
-    {
-        $urlUnAuth = $this->render('presentation/equipe.html.twig', [
-            'controller_name' => 'PresentationController',
-            ]);
-            return  $urlUnAuth;
-    }
-    //-------------------------------------------------------------------------------
 }

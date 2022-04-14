@@ -1,9 +1,18 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <title>Actualités</title>
+	<title>Actualités</title>
 
-    <h1 class="text-center mb-5">Actualités</h1>
-    {<pre>
-        {{ dump(new) }}
-    </pre>}
+	<div class="container">
+		{% for n in new %}
+			<div class="row text-center">
+				<div class="col bg-light">
+					<h1>{{n.title}}</h1>
+					<p>{{ n.date|date('d-m-Y') }}</p>
+					<img src="{{asset('images/' ~ n.image)}}">
+					<p>{{ n.body|raw }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
 {% endblock %}
