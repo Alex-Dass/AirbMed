@@ -37,18 +37,6 @@ class PresentationCrudController extends AbstractCrudController
             ->remove(Crud::PAGE_INDEX, Action::DELETE)
         ;
     }
-
-    public function presentationById(PresentationRepository $doctrine, int $id)
-    { 
-       
-        $text = $doctrine->findById($id);
-        return $this->render(
-            'presentation/body.html.twig',
-            ['text' => $text]
-        );
-    }
-
-    
     public function configureFields(string $pageName): iterable
     {
         return [

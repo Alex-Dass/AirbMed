@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InformationsController!
+{% endblock %}
+
+{% block body %}
+	<div class="container-sm contact" style="background-image: url('https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images/Infos-pratiques//Nous%20contacter_0x0.jpg');height: 200px;">
+		<span class="align-middle">
+			<h1 class="text-center align-middle">Nous contacter</h1>
+		</span>
+	</diV>
+	<div class="container-sm">
+		<h6>
+			<strong>Notre &eacute;quipe est &agrave; votre disposition pour r&eacute;pondre &agrave; l&#39;ensemble de vos interrogations :</strong>
+		</h6>
+		<ul>
+			<li>Par&nbsp;<strong>t&eacute;l&eacute;phone</strong>&nbsp;au 02 23 46 44 20, du lundi au vendredi de&nbsp;<strong>08h30 &agrave; 18h00</strong>
+			</li>
+			<li>Par&nbsp;<strong>fax</strong>&nbsp;au 02 23 46 74 05</li>
+			<li>Par&nbsp;<strong>e-mail</strong>&nbsp;avec notre formulaire de contact :</li>
+		</ul>
+		<p>&nbsp;&nbsp;</p>
+
+		{# <form  action="mailto:contact@yourdomain.com"
+        method="POST"
+        enctype="multipart/form-data"
+        name="EmailForm">
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Votre nom</label>
+				<input type="texte" class="form-control" id="validationServer01" required>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Adresse électronique</label>
+				<input type="email" class="form-control" id="exampleFormControlInput1" required>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Téléphone</label>
+				<input type="texte" class="form-control" id="exampleFormControlInput1"required>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Objet</label>
+				<input type="texte" class="form-control" id="exampleFormControlInput1"required>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Votre message</label>
+				<input type="texte" class="form-control" id="exampleFormControlInput1"required>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlFile1">Pièce jointe</label>
+				<input type="file" class="form-control-file" id="exampleFormControlFile1">
+			</div>
+			<button type="submit" class="btn btn-primary my-1">Envoyer</button>
+
+
+		</form> #}
+        {{ form(form) }}
+	</diV>
+{% endblock %}
+

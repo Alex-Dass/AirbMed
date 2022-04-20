@@ -19,36 +19,6 @@ class NewsCrudController extends AbstractCrudController
         return News::class;
     }
 
-    public function recentNews(NewsRepository $newsRepository){
-        
-        $news = $newsRepository->recentNews(3);
-
-        return $this->render(
-            'news/recent_news.html.twig',
-            ['news' => $news]
-        );
-    }
-
-    public function allNews(NewsRepository $newsRepository){
-        
-        $news = $newsRepository->allNews();
-
-        return $this->render(
-            'news/all_news.html.twig',
-            ['news' => $news]
-        );
-    }
-
-    public function oneNews(NewsRepository $newsRepository){
-        
-        $news = $newsRepository->oneNews();
-
-        return $this->render(
-            'news/all_news.html.twig',
-            ['news' => $news]
-        );
-    }
-
     public function configureCrud(Crud $crud): Crud
     {
         return $crud 

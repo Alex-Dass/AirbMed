@@ -1,8 +1,16 @@
-{% for t in text %}
-    &nbsp;
-    <h1 class="text-center">	{{ t.titre  |raw }} </h1>
-    &nbsp;
-   <div class="container"> 
-        <p>{{ t.corp  |raw }}</p>
-   </diV>
-{% endfor %}
+{% extends 'base.html.twig' %}
+{% block body %}
+	<title>Présentations</title>
+
+     <main class="container">
+		<img src="https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images/Bandeaux//Notre%20statut%20associatif_0x0.jpg"/>
+          {% if page is not null %}
+               &nbsp;
+               <h1 class="text-center">	{{ page.titre | raw }} </h1>
+               &nbsp;
+               <div class="container"> 
+                    <p>{{ page.corp | raw }}</p>
+               </diV>
+          {% endif %}
+	</main>
+{% endblock %}

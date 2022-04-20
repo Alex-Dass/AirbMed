@@ -1,0 +1,82 @@
+<!-- Navbar -->
+		<nav class="navbar navtest navbar-expand-lg" id="newmenuu">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand me-2" href="/">
+					<img src="https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images//logoHorizontal2_0x0.png" height="50" loading="lazy" style="margin-top: -1px;"/>
+				</a>
+		<div class="container-lg collapse navbar-collapse justify-content-center" id="navmenu">
+				<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/presentation/presidente" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Présentation</a>
+						<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
+						{% if presentations | length > 0 %}
+							{% for presentation in presentations %}
+								<a class="dropdown-item" href="{{path('page_presentation',{id:presentation.id})}}">{{presentation.titre}}</a>
+							{% endfor %}
+						{% endif %}
+						</div>
+					</li>
+					<li class="nav-item dropdown espace">
+
+						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Préstation</a>
+						<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
+							{% if prestations | length > 0 %}
+								{% for prestation in prestations %}
+									<a class="dropdown-item" href="{{path('page_prestation',{id:prestation.id})}}">{{prestation.titre}}</a>
+								{% endfor %}
+							{% endif %}
+						</div>
+					</li>
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actualités</a>
+						<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
+							<a class="dropdown-item" href="/actualite">Actualités</a>
+							<a class="dropdown-item" href="/archives">Archive</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/partenaires" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Partenaires</a>
+						<div class="dropdown-menu  dropdown-content" aria-labelledby="dropdown08">
+							<a class="dropdown-item" href="/partenaires/sante">Organismes de santé et sociaux</a>
+							<a class="dropdown-item" href="/partenaires/usagers">Associations d'usagers</a>
+							<a class="dropdown-item" href="/partenaires/medicales">Organisations médicales et sociétés savantes</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown espace">
+						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/informations" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informations</a>
+						<div class="dropdown-menu  dropdown-content" aria-labelledby="dropdown08">
+							<a class="dropdown-item" href="/informations">Nous trouver</a>
+							<a class="dropdown-item" href="/informations/contacter">Nous contacter</a>
+							<a class="dropdown-item" href="/informations/rejoindre">Nous rejoindre</a>
+						</div>
+					</li>
+				</ul>
+
+
+				{% if app.user %}
+					<div class="text-end">
+						<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.user.username }}</a>
+								<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
+									{% if is_granted('ROLE_ADMIN')%}
+										<a class="dropdown-item" href="/admin">Dashboard</a>
+									{% endif %}
+									<a class="dropdown-item" href="/logout">Déconnexion</a>
+
+								</div>
+							</li>
+						</ul>
+
+					{% else %}
+						<p>
+							{#<a class="nav-link  px-2 text-black dropdown" href="/login" >Connexion</a>
+													<button onclick="location.href='/login'" type="button" class="btn btn-warning">Connexion</button> 
+													<button onclick="location.href='/register'" type="button" class="btn btn-warning">S'inscrire</button> #}
+						{% endif %}
+					</div>
+				</header>
+			</div>
+	</nav>

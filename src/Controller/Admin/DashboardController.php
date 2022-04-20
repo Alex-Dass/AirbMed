@@ -4,8 +4,10 @@ namespace App\Controller\Admin;
 use App\Entity\News;
 use App\Entity\User;
 use App\Entity\HomeText;
+use App\Entity\Partenaires;
 use App\Entity\Presentation;
-
+use App\Entity\Prestations;
+use App\Entity\PrestationTrois;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -52,39 +54,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Presentation','fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Voir les pages','fas fa-book', Presentation::class),
         ]);
-        // yield MenuItem::subMenu('Presentation','fas fa-file')->setSubItems([
-        //     MenuItem::linkToCrud('Mot de la présidente','fas fa-book', Presentation::class),
-        //     MenuItem::linkToCrud('Statut associatif','fas fa-book', News::class),
-        //     MenuItem::linkToCrud('Notre métier','fas fa-book', News::class),
-        //     MenuItem::linkToCrud('Notre histoire','fas fa-book', News::class),
-        //     MenuItem::linkToCrud('Nos engagements','fas fa-book', News::class),
-        //     MenuItem::linkToCrud('Nos valeurs','fas fa-book', News::class),
-        //     MenuItem::linkToCrud('Nos equipe','fas fa-book', News::class),
-        // ]);
-        yield MenuItem::subMenu('Prestation','fas fa-file')->setSubItems([
-              MenuItem::subMenu('Assistance respiratoire','fas fa-book')->setSubItems([
-                MenuItem::linkToCrud('Statut associatif','fas fa-book', News::class),
-                MenuItem::linkToCrud('Notre métier','fas fa-book', News::class),
-                MenuItem::linkToCrud('Notre histoire','fas fa-book', News::class),
-                MenuItem::linkToCrud('Nos engagements','fas fa-book', News::class),
-                MenuItem::linkToCrud('Nos valeurs','fas fa-book', News::class),
-                MenuItem::linkToCrud('Nos equipe','fas fa-book', News::class),
-            ]),
-            MenuItem::linkToCrud('Statut associatif','fas fa-book', News::class),
-            MenuItem::linkToCrud('Notre métier','fas fa-book', News::class),
-            MenuItem::linkToCrud('Notre histoire','fas fa-book', News::class),
-            MenuItem::linkToCrud('Nos engagements','fas fa-book', News::class),
-            MenuItem::linkToCrud('Nos valeurs','fas fa-book', News::class),
-            MenuItem::linkToCrud('Nos equipe','fas fa-book', News::class),
+        yield MenuItem::subMenu('Prestation','fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Voir les pages simples','fas fa-book', Prestations::class),
         ]);
-        yield MenuItem::subMenu('Actualité','fas fa-file')->setSubItems([
-            MenuItem::linkToCrud('Actualité','fas fa-book', News::class),
-            MenuItem::linkToCrud('Archives','fas fa-book', News::class),
-        ]);
-        yield MenuItem::subMenu('Partenaires','fas fa-file')->setSubItems([
-            MenuItem::linkToCrud('Mot de la présidente','fas fa-book', News::class),
-            MenuItem::linkToCrud('Statut associatif','fas fa-book', News::class),
-            MenuItem::linkToCrud('Notre métier','fas fa-book', News::class),
+        yield MenuItem::subMenu('Partenaires','fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Voir les pages','fas fa-book', Partenaires::class),
         ]);
         yield MenuItem::section('Option');
         yield MenuItem::linkToCrud('Utilisateur','fas fa-users', User::class);

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<title>Actualités</title>
+
+	<div class="container">
+		{% for archive in archive %}
+			<div class="row text-center">
+				<div class="col bg-light">
+					<h1>{{archive.title}}</h1>
+					<p>{{ archive.date|date('d-m-Y') }}</p>
+					<img src="{{asset('images/' ~ archive.image)}}">
+					<p>{{ archive.body|striptags|u.truncate(200)|raw  }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
