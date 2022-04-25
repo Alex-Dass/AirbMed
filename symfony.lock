@@ -131,6 +131,15 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "9d254a22efca7264203eea98b866f16f944b2f09"
+        }
+    },
     "symfony/asset": {
         "version": "v6.0.3"
     },
@@ -175,6 +184,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v6.0.6"
+    },
+    "symfony/doctrine-messenger": {
+        "version": "v6.0.7"
     },
     "symfony/dotenv": {
         "version": "v6.0.5"
@@ -270,6 +282,18 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/messenger": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "25e3c964d3aee480b3acc3114ffb7940c89edfed"
+        },
+        "files": [
+            "./config/packages/messenger.yaml"
+        ]
+    },
     "symfony/mime": {
         "version": "v6.0.3"
     },
@@ -360,6 +384,15 @@
     },
     "symfony/security-http": {
         "version": "v6.0.5"
+    },
+    "symfony/sendgrid-mailer": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.4",
+            "ref": "b46e4f8f1adb2864f0aa9c0ff57aea3324a07199"
+        }
     },
     "symfony/service-contracts": {
         "version": "v3.0.0"

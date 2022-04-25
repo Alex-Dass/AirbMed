@@ -2,17 +2,21 @@
 {% block body %}
 	<title>Actualités</title>
 
+	<h1 class="text-center mb-5">Archive</h1>
+
 	<div class="container">
 		{% for archive in archive %}
 			<div class="row text-center">
 				<div class="col bg-light">
-					<h1>{{archive.title}}</h1>
+					<h1>{{archive.title}}
+					</h1>
 					<p>{{ archive.date|date('d-m-Y') }}</p>
-					<img src="{{asset('images/' ~ archive.image)}}">
-					<p>{{ archive.body|striptags|u.truncate(200)|raw  }}</p>
+					<img src="{{asset('images/' ~ archive.image)}}" style="height:200px; width:200px">
+					<p>{{ archive.body|striptags|u.truncate(200)|raw }}</p>
+					<a class="text-right" href="{{path('single_actu',{id:archive.id})}}">Voir plus</a>
 				</div>
 			</div>
+			<p></p>
 		{% endfor %}
 	</div>
-
 {% endblock %}

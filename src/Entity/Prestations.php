@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PrestationsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -76,6 +78,16 @@ class Prestations
      * @ORM\Column(type="text", nullable=true)
      */
     private $body5;
+
+    /**
+     * @ORM\OneToMany(targetEntity=SousPrestations::class, mappedBy="titre")
+     */
+    private $sousTitre;
+
+    public function __construct()
+    {
+        $this->sousTitre = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -222,6 +234,36 @@ class Prestations
     public function setBody5(?string $body5): self
     {
         $this->body5 = $body5;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SousPrestations>
+     */
+    public function getSousTitre(): Collection
+    {
+        return $this->sousTitre;
+    }
+
+    public function addSousTitre(SousPrestations $sousTitre): self
+    {
+        if (!$this->sousTitre->contains($sousTitre)) {
+            $this->sousTitre[] = $sousTitre;
+            $sousTitre->setTitre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSousTitre(SousPrestations $sousTitre): self
+    {
+        if ($this->sousTitre->removeElement($sousTitre)) {
+            // set the owning side to null (unless already changed)
+            if ($sousTitre->getTitre() === $this) {
+                $sousTitre->setTitre(null);
+            }
+        }
 
         return $this;
     }

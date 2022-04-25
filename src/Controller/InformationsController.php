@@ -19,18 +19,4 @@ class InformationsController extends AbstractController
             'controller_name' => 'InformationsController',
         ]);
     }
-    #[Route('/informations/contacter', name: 'app_contacter')]
-    public function contacter(Request $request): Response
-    {
-       
-        return $this->render('informations/contacter.html.twig', [
-        ]);
-    }
-    #[Route('/informations/rejoindre', name: 'app_rejoindre')]
-    public function rejoindre(): Response
-    {
-        return $this->render('informations/rejoindre.html.twig', [
-            'controller_name' => 'InformationsController',
-        ]);
-    }
 }

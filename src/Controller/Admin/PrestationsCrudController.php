@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Twig\Node\TextNode;
@@ -30,6 +31,7 @@ class PrestationsCrudController extends AbstractCrudController
         return [
             FormField::addPanel('Remplisage obligatoire'),
             TextField::new('titre'),
+           // ArrayField::new('SousTitre', 'Sous categorie'),
             TextEditorField::new('texte', 'Contenu')->setFormType(CKEditorType::class),
             FormField::addPanel('Remplisage optionel en fonction de la page')->collapsible(),
             TextField::new('sousTitre1', 'Sous titre 1 (optionel)'),

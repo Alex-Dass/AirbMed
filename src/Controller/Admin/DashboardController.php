@@ -8,6 +8,7 @@ use App\Entity\Partenaires;
 use App\Entity\Presentation;
 use App\Entity\Prestations;
 use App\Entity\PrestationTrois;
+use App\Entity\SousPrestations;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -56,6 +57,7 @@ class DashboardController extends AbstractDashboardController
         ]);
         yield MenuItem::subMenu('Prestation','fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Voir les pages simples','fas fa-book', Prestations::class),
+            MenuItem::linkToCrud('Voir les pages simples','fas fa-book', SousPrestations::class),
         ]);
         yield MenuItem::subMenu('Partenaires','fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Voir les pages','fas fa-book', Partenaires::class),
