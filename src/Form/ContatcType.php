@@ -32,6 +32,7 @@ class ContatcType extends AbstractType
                 'label' => 'Message',
                 'required' => true])
             ->add('document' ,FileType::class,[
+                'mapped' => false,
                 'required' => false])
         ;
     }

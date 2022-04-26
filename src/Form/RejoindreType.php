@@ -10,8 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-
-
+use Symfony\Component\Validator\Constraints\File;
 
 class RejoindreType extends AbstractType
 {
@@ -32,10 +31,34 @@ class RejoindreType extends AbstractType
                 'required' => true ])
             ->add('cv', FileType::class,[
                 'label' => 'CV',
-                'required' => true ])
+                'required' => true ,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'application/pdf',
+                            'application/x-pdf',
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                        ],
+                        'mimeTypesMessage' => 'Le type de domment est invalide (PDF ou fichier word)',
+                    ])
+                ]
+            ])
             ->add('motivation', FileType::class,[
                 'label' => 'L ettre de motivation',
-                'required' => true ])
+                'required' => true,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'application/pdf',
+                            'application/x-pdf',
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                        ],
+                        'mimeTypesMessage' => 'Le type de domment est invalide (PDF ou fichier word)',
+                    ])
+                ]
+            ])
         ;
     }
 

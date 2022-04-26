@@ -132,7 +132,6 @@ class Contact
     public function setDocument(?string $document): self
     {
         $this->document = $document;
-
         return $this;
     }
 }
