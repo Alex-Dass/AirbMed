@@ -17,10 +17,10 @@ class ActualiteController extends AbstractController
             'news' => $news,
         ]);
     }
-    #[Route('/actualite/{id}', name: 'single_actu')]
-    public function index2(NewsRepository $newsRepository, int $id): Response
+    #[Route('/actualite/{slug}/', name: 'single_actu')]
+    public function index2(NewsRepository $newsRepository, string $slug): Response
     {   
-        $new = $newsRepository->findBy(['id' => $id]);
+        $new = $newsRepository->findBy(['slug' => $slug]);
         return $this->render('actualite/body.html.twig', [
             'new' => $new,
         ]);

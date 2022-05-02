@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class NewsCrudController extends AbstractCrudController
@@ -32,7 +33,8 @@ class NewsCrudController extends AbstractCrudController
             DateTimeField::new('date','Date'),
             TextField::new('author','Autheur'),
             TextField::new('title','Titre de l\'article'),
-            ImageField::new('image','Image du carrouselle')->setUploadDir('public\images')->setBasePath('images')->setUploadedFileNamePattern('[slug]-[contenthash].[extension]'),
+            SlugField::new('slug')->setTargetFieldName('title')/*->hideOnForm()->hideOnDetail()->hideOnIndex()*/,
+            ImageField::new('image','Image du carrouselle')->setUploadDir('public\images\Actualités')->setBasePath('images\Actualités')->setUploadedFileNamePattern('[slug]-[contenthash].[extension]'),
             TextEditorField::new('body', 'Contenu')->setFormType(CKEditorType::class),
             
            

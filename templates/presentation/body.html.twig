@@ -3,7 +3,7 @@
 	<title>Présentations</title>
 
      <main class="container">
-		<img src="https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images/Bandeaux//Notre%20statut%20associatif_0x0.jpg"/>
+          <img src="{{asset('images/Presentation/' ~ page.image)}}"/>
           {% if page is not null %}
                &nbsp;
                <h1 class="text-center">	{{ page.titre | raw }} </h1>

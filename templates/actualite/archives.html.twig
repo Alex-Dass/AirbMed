@@ -11,9 +11,9 @@
 					<h1>{{archive.title}}
 					</h1>
 					<p>{{ archive.date|date('d-m-Y') }}</p>
-					<img src="{{asset('images/' ~ archive.image)}}" style="height:200px; width:200px">
+					<img src="{{asset('images/Actualités/' ~ archive.image)}}" style="height:200px; width:200px">
 					<p>{{ archive.body|striptags|u.truncate(200)|raw }}</p>
-					<a class="text-right" href="{{path('single_actu',{id:archive.id})}}">Voir plus</a>
+					<a class="text-right" href="{{path('single_actu',{slug:archive.slug})}}">Voir plus</a>
 				</div>
 			</div>
 			<p></p>

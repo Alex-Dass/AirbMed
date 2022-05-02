@@ -11,9 +11,9 @@
 					<h1>{{n.title}}
 					</h1>
 					<p>{{ n.date|date('d-m-Y') }}</p>
-					<img src="{{asset('images/' ~ n.image)}}" style="height:200px; width:200px">
+					<img src="{{asset('images/Actualités/' ~ n.image)}}" style="height:200px; width:200px">
 					<p>{{ n.body|striptags|u.truncate(200)|raw }}</p>
-					<a class="text-right" href="{{path('single_actu',{id:n.id})}}">Voir plus</a>
+					<a class="text-right" href="{{path('single_actu',{slug:n.slug})}}">Voir plus</a>
 				</div>
 			</div>
 			<p></p>

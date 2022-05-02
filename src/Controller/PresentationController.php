@@ -10,10 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class PresentationController extends AbstractController
 {
     //-------------------------------------------------------------------------------
-    #[Route('/presentation/{id}', name: 'page_presentation')]
-    public function page_presentation(int $id, PresentationRepository $presentationRepository): Response
+    #[Route('/presentation/{slug}', name: 'page_presentation')]
+    public function page_presentation(string $slug, PresentationRepository $presentationRepository): Response
     {   
-        $page = $presentationRepository->find($id);
+        $page = $presentationRepository->findOneBy(['slug' => $slug]);
         return $this->render('presentation/body.html.twig', [
             'page' => $page,
         ]);

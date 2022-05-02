@@ -9,10 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PrestationController extends AbstractController
 {
-    #[Route('/prestation/{id}', name: 'page_prestation')]
-    public function page_prestation(int $id, PrestationsRepository $prestationsRepository): Response
+    #[Route('/prestation/{slug}', name: 'page_prestation')]
+    public function page_prestation(string $slug, PrestationsRepository $prestationsRepository): Response
     {   
-        $page = $prestationsRepository->find($id);
+        $page = $prestationsRepository->findOneBy(['slug' => $slug]);
         return $this->render('prestation/index.html.twig', [
             'page' => $page,
         ]);

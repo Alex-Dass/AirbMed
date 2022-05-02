@@ -1,7 +1,7 @@
 <div class="owl-carousel owl-theme">
 	{% for n in news %}
 		<div class="owl-slide d-flex align-items-center cover" style="
-							background-image: linear-gradient(to right, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{asset('images/' ~ n.image)}});
+							background-image: linear-gradient(to right, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{asset('images/Actualités/' ~ n.image)}});
 							background-repeat: no-repeat, no-repeat;
 							margin-top:-20px;
 							">
@@ -15,7 +15,7 @@
 						</div>
 					</div>
 				</div>
-				<a class="btn btn-primary owl-slide-animated owl-slide-cta" href="{{path('single_actu',{id:n.id})}}" role="button">Voir</a>
+				<a class="btn btn-primary owl-slide-animated owl-slide-cta" href="{{path('single_actu',{slug:n.slug})}}" role="button">Voir</a>
 			</div>
 			
 		</div>

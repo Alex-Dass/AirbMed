@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Twig\Node\TextNode;
 
@@ -31,6 +33,8 @@ class PrestationsCrudController extends AbstractCrudController
         return [
             FormField::addPanel('Remplisage obligatoire'),
             TextField::new('titre'),
+            SlugField::new('slug')->setTargetFieldName('titre')/*->hideOnForm()->hideOnDetail()->hideOnIndex()*/,
+            ImageField::new('image','Image titre')->setUploadDir('public\images\Prestations')->setBasePath('images\Prestations')->setUploadedFileNamePattern('[slug]-[contenthash].[extension]'),
            // ArrayField::new('SousTitre', 'Sous categorie'),
             TextEditorField::new('texte', 'Contenu')->setFormType(CKEditorType::class),
             FormField::addPanel('Remplisage optionel en fonction de la page')->collapsible(),

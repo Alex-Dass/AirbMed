@@ -4,6 +4,7 @@
 
 	<main class="container">
 		{% if page is not null %}
+			<img src="{{asset('images/Prestations/' ~ page.image)}}"/>
 			&nbsp;
 			<h1 class="text-center">
 				{{ page.titre | raw }}

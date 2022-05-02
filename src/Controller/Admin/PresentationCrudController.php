@@ -14,7 +14,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 
 class PresentationCrudController extends AbstractCrudController
 {
@@ -41,7 +42,10 @@ class PresentationCrudController extends AbstractCrudController
     {
         return [
             TextField::new('titre'),
+            SlugField::new('slug')->setTargetFieldName('titre')->hideOnForm()->hideOnDetail()->hideOnIndex(),
+            ImageField::new('image','Image titre')->setUploadDir('public\images\Presentation')->setBasePath('images\Presentation')->setUploadedFileNamePattern('[slug]-[contenthash].[extension]'),
             TextEditorField::new('corp', 'Contenu de la page')->setFormType(CKEditorType::class),
+           
         ];
     }
     
