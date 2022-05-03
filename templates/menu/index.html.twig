@@ -19,76 +19,62 @@
 					{% endif %}
 				</div>
 			</li>
-
 			<li class="nav-item dropdown espace">
 				<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Préstation</a>
 				<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
 					{% if prestations | length > 0 %}
 						{% for prestation in prestations %}
-							<a class="dropdown-item" href="{{path('page_prestation',{slug:prestation.slug})}}">{{prestation.titre}}</a>
+							<a class="dropdown-item" id="test" href="{{path('page_prestation',{slug:prestation.slug})}}">{{prestation.titre}}</a>
 						{% endfor %}
-							{% if prestations.id == 2 %}
-								<ul class="dropdown-menu">
-									<li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-									<li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-								</ul>
-								{% endif %}
-							
+					{% endif %}
+				</div>
+			</li>
+		</li>
+		<li class="nav-item dropdown espace">
+			<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actualités</a>
+			<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
+				<a class="dropdown-item" href="/actualite/">Actualités</a>
+				<a class="dropdown-item" href="/archives/">Archive</a>
+			</div>
+		</li>
+
+		<li class="nav-item dropdown espace">
+			<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/partenaires" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Partenaires</a>
+			<div class="dropdown-menu  dropdown-content" aria-labelledby="dropdown08">
+				<a class="dropdown-item" href="/partenaires/sante">Organismes de santé et sociaux</a>
+				<a class="dropdown-item" href="/partenaires/usagers">Associations d'usagers</a>
+				<a class="dropdown-item" href="/partenaires/medicales">Organisations médicales et sociétés savantes</a>
+			</div>
+		</li>
+
+		<li class="nav-item dropdown espace">
+			<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/informations" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informations</a>
+			<div class="dropdown-menu  dropdown-content" aria-labelledby="dropdown08">
+				<a class="dropdown-item" href="/informations">Nous trouver</a>
+				<a class="dropdown-item" href="/contact">Nous contacter</a>
+				<a class="dropdown-item" href="/rejoindre">Nous rejoindre</a>
+			</div>
+		</li>
+	</ul>
+	{% if app.user %}
+		<div class="text-end">
+			<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.user.username }}</a>
+					<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
+						{% if is_granted('ROLE_ADMIN')%}
+							<a class="dropdown-item" href="/admin">Dashboard</a>
 						{% endif %}
+						<a class="dropdown-item" href="/logout">Déconnexion</a>
+
 					</div>
 				</li>
-			</li>
-			<li class="nav-item dropdown espace">
-				<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actualités</a>
-				<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
-					<a class="dropdown-item" href="/actualite/">Actualités</a>
-					<a class="dropdown-item" href="/archives/">Archive</a>
-				</div>
-			</li>
+			</ul>
 
-			<li class="nav-item dropdown espace">
-				<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/partenaires" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Partenaires</a>
-				<div class="dropdown-menu  dropdown-content" aria-labelledby="dropdown08">
-					<a class="dropdown-item" href="/partenaires/sante">Organismes de santé et sociaux</a>
-					<a class="dropdown-item" href="/partenaires/usagers">Associations d'usagers</a>
-					<a class="dropdown-item" href="/partenaires/medicales">Organisations médicales et sociétés savantes</a>
-				</div>
-			</li>
-
-			<li class="nav-item dropdown espace">
-				<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="/informations" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Informations</a>
-				<div class="dropdown-menu  dropdown-content" aria-labelledby="dropdown08">
-					<a class="dropdown-item" href="/informations">Nous trouver</a>
-					<a class="dropdown-item" href="/contact">Nous contacter</a>
-					<a class="dropdown-item" href="/rejoindre">Nous rejoindre</a>
-				</div>
-			</li>
-
-		</ul>
-
-		{% if app.user %}
-			<div class="text-end">
-				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle px-2 text-black dropdown" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.user.username }}</a>
-						<div class="dropdown-menu dropdown-content" aria-labelledby="dropdown08">
-							{% if is_granted('ROLE_ADMIN')%}
-								<a class="dropdown-item" href="/admin">Dashboard</a>
-							{% endif %}
-							<a class="dropdown-item" href="/logout">Déconnexion</a>
-
-						</div>
-					</li>
-				</ul>
-
-			{% else %}
-				<p>
-					{#<a class="nav-link  px-2 text-black dropdown" href="/login" >Connexion</a>
-																							<button onclick="location.href='/login'" type="button" class="btn btn-warning">Connexion</button> 
-																							<button onclick="location.href='/register'" type="button" class="btn btn-warning">S'inscrire</button> #}
-				{% endif %}
-			</div>
-		</header>
-	</div>
-</nav>
+		{% else %}
+			<p>
+			{% endif %}
+		</div>
+	</header>
+</div></nav>
 
