@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InformationsController!
+{% endblock %}
+
+{% block body %}
+	<div class="container-sm contact" style="background-image: linear-gradient(to right, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),url('https://www.airdebretagne.fr/files/_IMAGES_ZOOM_/file/Images/Infos-pratiques//Nous%20contacter_0x0.jpg');height: 200px;">
+		<h1 class="mid">Nous contacter</h1>
+	</diV>
+	<div class="container-sm">
+		<p>&nbsp;&nbsp;</p>
+		<h6>
+			<strong>Notre &eacute;quipe est &agrave; votre disposition pour r&eacute;pondre &agrave; l&#39;ensemble de vos interrogations :</strong>
+		</h6>
+		<ul>
+			<li>Par&nbsp;<strong>t&eacute;l&eacute;phone</strong>&nbsp;au 02 23 46 44 20, du lundi au vendredi de&nbsp;<strong>08h30 &agrave; 18h00</strong>
+			</li>
+			<li>Par&nbsp;<strong>fax</strong>&nbsp;au 02 23 46 74 05</li>
+			<li>Par&nbsp;<strong>e-mail</strong>&nbsp;avec notre formulaire de contact :</li>
+		</ul>
+		<p>&nbsp;&nbsp;</p>
+
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<button type="submit" class="btn btn-primary">Submit</button>
+		{{ form_end(form) }}
+	</diV>
+{% endblock %}

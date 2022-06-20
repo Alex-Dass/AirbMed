@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<style>
+		#newmenuu {}
+		.navbar1{
+    		background-color: #FFFFFF;
+			position: fixed;
+			top: 0;
+			z-index: 10;
+			width: 100%;}
+		.navtest{
+			color: #FFFFFF;
+			position: absolute;
+			top: 0;
+			z-index: 10;
+			width: 100%;
+			display: none;}
+	</style>
+
+	<script>
+	window.onscroll = function() {
+		console.log(window.pageYOffset);
+		var nav = document.getElementById('newmenuu');
+		if ( window.pageYOffset > 250 ) {
+			nav.classList.remove("navtest");
+			nav.classList.add("navbar1");
+		} else {
+			nav.classList.remove("navbar1");
+			nav.classList.add("navtest");}}
+	</script>
+
+	<title>Airdebretagne</title>
+ 	{{ render(controller( 'App\\Controller\\ActualiteController::recentNews')) }}
+	<main class="container">
+	 {{ render(controller( 'App\\Controller\\Admin\\HomeTextCrudController::show' )) }} 
+	</main>
+{% endblock %}

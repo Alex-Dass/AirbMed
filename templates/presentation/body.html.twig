@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<title>Présentations</title>
+
+     <main class="container">
+          <img src="{{asset('images/Presentation/' ~ page.image)}}"/>
+          {% if page is not null %}
+               &nbsp;
+               <h1 class="text-center">	{{ page.titre | raw }} </h1>
+               &nbsp;
+               <div class="container"> 
+                    <p>{{ page.corp | raw }}</p>
+               </diV>
+          {% endif %}
+	</main>
+{% endblock %}

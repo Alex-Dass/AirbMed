@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PartenairesController!
+{% endblock %}
+
+{% block body %}
+	<div class='container'>
+		<div id="accordion">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h5 class="mb-0">
+						<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							ORGANISMES DE SANTÉ
+						</button>
+					</h5>
+				</div>
+				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+					<div class="card-body">
+						{% for partenaires in partenaires %}
+							{% if partenaires.sousCategories == 'ORGANISMES DE SANTÉ' %}
+								<p>{{partenaires.nom}}</p>
+								<link>{{partenaires.url}}</link>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header" id="headingTwo">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							ORGANISMES SOCIAUX
+						</button>
+					</h5>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+					<div class="card-body">
+						{% for partenaires in partenaires %}
+							{% if partenaires.sousCategories == 'ORGANISMES SOCIAUX' %}
+								<i>{{partenaires.nom}}</i></p>
+								<link  href="{{partenaires.url}}">test</link>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}
+
